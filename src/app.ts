@@ -17,8 +17,12 @@ import { setupUnhandledErrors } from './middleware/unhandledErrors';
 setupUnhandledErrors();
 
 const app = express();
+const corsOptions = {
+    origin: process.env.FRONTEND_URL, // Replace with your frontend URL
+    credentials: true, // Enable credentials
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(helmet());
 app.use(httpLogger);
 app.use(express.json());
