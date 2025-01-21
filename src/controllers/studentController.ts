@@ -8,7 +8,7 @@ export const studentController = {
       const result = await pool.query(
         'SELECT id, first_name as "firstName", last_name as "lastName", email, date_of_birth as "dateOfBirth", student_id as "studentId" FROM students'
       );
-      res.json(result.rows);
+      res.status(200).json(result.rows);
     } catch (error) {
       res
         .status(500)
@@ -27,7 +27,7 @@ export const studentController = {
         res.status(404).json({ error: 'Étudiant non trouvé' });
         return;
       }
-      res.json(result.rows[0]);
+      res.status(200).json(result.rows[0]);
     } catch (error) {
       res
         .status(500)

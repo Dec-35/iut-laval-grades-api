@@ -16,7 +16,7 @@ export const gradeController = {
         JOIN courses c ON c.id = g.course_id
         ORDER BY g.academic_year DESC, g.semester DESC
       `);
-      res.json(result.rows);
+      res.status(200).json(result.rows);
     } catch (error) {
       throw new AppError(
         500,
@@ -40,7 +40,7 @@ export const gradeController = {
       `,
         [studentId]
       );
-      res.json(result.rows);
+      res.status(200).json(result.rows);
     } catch (error) {
       throw new AppError(
         500,
@@ -113,7 +113,7 @@ export const gradeController = {
         throw new AppError(404, 'Note non trouvée', 'GRADE_NOT_FOUND');
       }
 
-      res.json(result.rows[0]);
+      res.status(200).json(result.rows[0]);
     } catch (error) {
       if (error instanceof AppError) throw error;
       throw new AppError(
@@ -136,7 +136,7 @@ export const gradeController = {
         throw new AppError(404, 'Note non trouvée', 'GRADE_NOT_FOUND');
       }
 
-      res.status(204).send();
+      res.status(204).json();
     } catch (error) {
       if (error instanceof AppError) throw error;
       throw new AppError(

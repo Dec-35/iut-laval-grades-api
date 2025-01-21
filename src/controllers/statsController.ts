@@ -26,7 +26,7 @@ export const statsController = {
         [courseId, academicYear]
       );
 
-      res.json(result.rows[0]);
+      res.status(200).json(result.rows[0]);
     } catch (error) {
       throw new AppError(
         500,
@@ -58,7 +58,7 @@ export const statsController = {
         [studentId, academicYear]
       );
 
-      res.json(result.rows);
+      res.status(200).json(result.rows);
     } catch (error) {
       throw new AppError(
         500,
@@ -95,7 +95,7 @@ export const statsController = {
         [academicYear]
       );
 
-      res.json(result.rows[0]);
+      res.status(200).json(result.rows[0]);
     } catch (error) {
       throw new AppError(
         500,
