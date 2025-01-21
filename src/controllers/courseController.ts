@@ -15,7 +15,7 @@ export const courseController = {
           description
         FROM courses
       `);
-      res.json(result.rows);
+      res.status(200).json(result.rows);
     } catch (error) {
       throw new AppError(
         500,
@@ -46,7 +46,7 @@ export const courseController = {
         throw new AppError(404, 'Cours non trouvé', 'COURSE_NOT_FOUND');
       }
 
-      res.json(result.rows[0]);
+      res.status(200).json(result.rows[0]);
     } catch (error) {
       if (error instanceof AppError) throw error;
       throw new AppError(
@@ -114,7 +114,7 @@ export const courseController = {
         throw new AppError(404, 'Cours non trouvé', 'COURSE_NOT_FOUND');
       }
 
-      res.json(result.rows[0]);
+      res.status(200).json(result.rows[0]);
     } catch (error) {
       if (error instanceof AppError) throw error;
       throw new AppError(
@@ -137,7 +137,7 @@ export const courseController = {
         throw new AppError(404, 'Cours non trouvé', 'COURSE_NOT_FOUND');
       }
 
-      res.status(204).send();
+      res.status(204).json();
     } catch (error) {
       if (error instanceof AppError) throw error;
       throw new AppError(
