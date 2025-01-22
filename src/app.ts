@@ -19,7 +19,7 @@ setupUnhandledErrors();
 const app = express();
 
 const corsOptions = {
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173', 
+    origin: process.env.FRONTEND_URL || 'https://iut-laval-grades-front-production.up.railway.app', 
     methods: ['GET', 'POST'],
     credentials: true,
   };
