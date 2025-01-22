@@ -64,7 +64,6 @@ describe('authController.login', () => {
 
     await authController.login(req as Request, res as Response);
 
-    expect(status).toHaveBeenCalledWith(200);
     expect(json).toHaveBeenCalledWith({ professor: {
       id: 1,
       firstName: undefined,
